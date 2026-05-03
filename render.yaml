@@ -1,0 +1,11 @@
+# Blueprint لـ Render: Web Service للـ API من مجلد server
+# بعد ربط المستودع: New → Blueprint → اختر الفرع ثم طبّق المتغيرات من لوحة Render.
+
+services:
+  - type: web
+    name: asser-api
+    runtime: node
+    rootDir: server
+    buildCommand: npm install
+    startCommand: npm start
+    healthCheckPath: /api/health

@@ -1,0 +1,9 @@
+# استخدم هذا الملف عندما يكون مجلد server هو جذر مستودع Git منفصل (بدون rootDir).
+
+services:
+  - type: web
+    name: asser-api
+    runtime: node
+    buildCommand: npm install
+    startCommand: npm start
+    healthCheckPath: /api/health
