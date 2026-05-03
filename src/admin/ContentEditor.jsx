@@ -540,6 +540,20 @@ function AboutTab({ payload, setPayload }) {
           onChange={(e) => setPayload((p) => ({ ...p, about: { ...p.about, visionText: e.target.value } }))}
         />
       </Row>
+      <Row label="عنوان فقرة الرسالة">
+        <input
+          style={inp}
+          value={a.missionTitle ?? ""}
+          onChange={(e) => setPayload((p) => ({ ...p, about: { ...p.about, missionTitle: e.target.value } }))}
+        />
+      </Row>
+      <Row label="نص الرسالة">
+        <textarea
+          style={{ ...inp, minHeight: 90 }}
+          value={a.missionText ?? ""}
+          onChange={(e) => setPayload((p) => ({ ...p, about: { ...p.about, missionText: e.target.value } }))}
+        />
+      </Row>
       <Row label="عنوان قائمة «لماذا تختارني»">
         <input
           style={inp}
