@@ -35,6 +35,7 @@ export default function AboutSection() {
       />
       <div
         ref={ref}
+        className="about-section-inner"
         style={{
           display: "flex",
           alignItems: "center",
@@ -47,7 +48,27 @@ export default function AboutSection() {
           flexWrap: "wrap",
         }}
       >
-        <div style={{ flex: "2 1 600px", color: "#30684b" }}>
+        {/* الصورة أولاً في DOM = فوق النص على الموبايل؛ على الشاشات الواسعة نُعيد الترتيب بـ order */}
+        <div
+          className="about-section-photo"
+          style={{ flex: "1 1 300px", maxWidth: 400, textAlign: "center" }}
+        >
+          <div
+            style={{
+              borderRadius: "50% / 15px",
+              overflow: "hidden",
+              boxShadow: "0 15px 40px rgba(0,0,0,0.15)",
+              border: "10px solid #c19e66",
+            }}
+          >
+            <img
+              src={resolveMediaUrl(about.aboutPortraitUrl)}
+              alt={about.name}
+              style={{ width: "100%", height: "auto", objectFit: "cover", display: "block" }}
+            />
+          </div>
+        </div>
+        <div className="about-section-info" style={{ flex: "2 1 600px", color: "#30684b" }}>
           <h1 style={{ fontWeight: 800, fontSize: "3rem", color: "#30684b", marginBottom: 10 }}>
             {about.name}
           </h1>
@@ -90,23 +111,33 @@ export default function AboutSection() {
             ))}
           </ul>
         </div>
-        <div style={{ flex: "1 1 300px", maxWidth: 400, textAlign: "center" }}>
-          <div
-            style={{
-              borderRadius: "50% / 15px",
-              overflow: "hidden",
-              boxShadow: "0 15px 40px rgba(0,0,0,0.15)",
-              border: "10px solid #c19e66",
-            }}
-          >
-            <img
-              src={resolveMediaUrl(about.aboutPortraitUrl)}
-              alt={about.name}
-              style={{ width: "100%", height: "auto", objectFit: "cover", display: "block" }}
-            />
-          </div>
-        </div>
       </div>
+      <style>{`
+        @media (min-width: 901px) {
+          .about-section-inner .about-section-info {
+            order: 1;
+          }
+          .about-section-inner .about-section-photo {
+            order: 2;
+          }
+        }
+        @media (max-width: 900px) {
+          .about-section-inner {
+            flex-direction: column !important;
+            flex-wrap: nowrap !important;
+            align-items: stretch !important;
+            gap: 28px !important;
+          }
+          .about-section-inner .about-section-info,
+          .about-section-inner .about-section-photo {
+            order: initial !important;
+          }
+          .about-section-photo {
+            align-self: center;
+            max-width: min(400px, 100%) !important;
+          }
+        }
+      `}</style>
     </section>
   );
 }
