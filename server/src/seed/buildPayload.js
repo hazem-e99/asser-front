@@ -1,17 +1,18 @@
 /**
- * يبني محتوى الموقع الافتراضي من ملفات الواجهة src/data (مصدر واحد للحقيقة).
+ * محتوى افتراضي للـ seed. الملفات تحت defaultData/ مكررة من واجهة Vite (`src/data`)
+ * حتى يعمل الخادم وحده على Render دون مجلد الفرونت.
  */
-import { navLinks } from "../../../src/data/navigation.js";
+import { navLinks } from "./defaultData/navigation.js";
 import {
   logoUrl,
   heroBannerUrl,
   toursVideoUrl,
-} from "../../../src/data/assets.js";
-import { services } from "../../../src/data/services.js";
-import { places } from "../../../src/data/places.js";
-import { bikeImages, bikesBannerImage } from "../../../src/data/bikes.js";
-import { reviewsImages, staticReviews } from "../../../src/data/reviews.js";
-import { reasons, aboutPortraitUrl } from "../../../src/data/about.js";
+} from "./defaultData/assets.js";
+import { services } from "./defaultData/services.js";
+import { places } from "./defaultData/places.js";
+import { bikeImages, bikesBannerImage } from "./defaultData/bikes.js";
+import { reviewsImages, staticReviews } from "./defaultData/reviews.js";
+import { reasons, aboutPortraitUrl } from "./defaultData/about.js";
 
 const footerServices = [
   "جولات سياحية يومية في أبها - عسير",
@@ -58,6 +59,9 @@ export function buildDefaultPayload() {
       visionTitle: "رؤيتي",
       visionText:
         "أن أقدّم لكل سائح تجربة أصيلة في عسير، بحيث يتمكن من اكتشاف جمال الطبيعة والريف والثقافة المحلية بطريقة ممتعة وآمنة ومريحة.",
+      missionTitle: "رسالتي",
+      missionText:
+        "نقل صورة مشرفة للعالم عن المملكة العربية السعودية وعن منطقة عسير من خلال توفير جولات سياحية شخصية ومتنوعة، مع التركيز على تجربة محلية حقيقية، وتقديم كل ما يلزم لجعل رحلتك إلى أبها ذكرى لا تُنسى، من وسائل النقل حتى الأنشطة والفعاليات.",
       whyTitle: "لماذا تختارني",
       reasons,
       aboutPortraitUrl,

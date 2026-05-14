@@ -24,15 +24,7 @@ export default function ServicesSection() {
       >
         {title}
       </h2>
-      <div
-        style={{
-          display: "grid",
-          gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))",
-          gap: 30,
-          maxWidth: 1200,
-          margin: "0 auto",
-        }}
-      >
+      <div className="services-grid">
         {services.map((s, i) => (
           <ServiceCard key={s.title} {...s} delay={i * 100} />
         ))}

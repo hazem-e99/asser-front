@@ -64,14 +64,8 @@ function ToursHero({ videoUrl, title }) {
 
 function PlacesGrid({ places }) {
   return (
-    <section id="tours" style={{ padding: "20px", maxWidth: 1200, margin: "0 auto" }}>
-      <div
-        style={{
-          display: "grid",
-          gridTemplateColumns: "repeat(auto-fill, minmax(220px, 1fr))",
-          gap: 20,
-        }}
-      >
+    <section id="tours" className="tours-section">
+      <div className="places-grid">
         {places.map((p, i) => (
           <PlaceCard key={`${p.title}-${i}`} {...p} delay={(i % 4) * 100} />
         ))}

@@ -49,8 +49,9 @@ export default function ServiceCard({ img, title, desc, delay }) {
             onMouseLeave={(e) => (e.target.style.transform = "")}
           />
         </div>
-        <div style={{ padding: "25px 20px" }}>
+        <div className="service-card-body" style={{ padding: "25px 20px" }}>
           <h3
+            className="service-card-title"
             style={{
               fontWeight: 700,
               fontSize: "1.3rem",
@@ -61,6 +62,7 @@ export default function ServiceCard({ img, title, desc, delay }) {
             {title}
           </h3>
           <p
+            className="service-card-desc"
             style={{
               fontSize: "0.95rem",
               color: "#555",
